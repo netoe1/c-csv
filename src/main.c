@@ -3,18 +3,18 @@
 #include <locale.h>
 #include <string.h>
 
-unsigned int getLineSize(char *filename)
-{
-    char c = ' ';
-    int i = 0;
-    while ((c = fgetc(filename)) != EOF)
-    {
-        i++;
-    }
-}
+#define CSV_HEAD 256
+void readCSVHeader(char *buf);
 
 int main(void)
 {
     setlocale(LC_ALL, "");
     return 0;
+}
+
+void readCSVHeader(char *buf){
+    if(sizeof(buf) != CSV_HEAD){
+        puts("O head do ");
+        return;
+    }
 }
